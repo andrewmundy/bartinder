@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="center text-center" style="padding:1rem;">
+  <div>
+    <h2>Edit Your Profile.</h2>
+    <br>
+    <form action="{{ url_for('users.show', id=user.id) }}?_method=PATCH" method="POST">
+      {{ form.csrf_token }}
+    <img class="rounded-circle" src="{{user.avatar}}" style="padding:1rem;" width="200vmax" height="200vmax"class="d-inline-block align-top" alt="">
+<!-- img-url -->
+      {% if form.avatar.errors %}
+        {% for error in form.avatar.errors %}
+          <span class="text-danger">
+            {{ error }}
+          </span>
+        {% endfor %}
+      {% endif %}
+      {{ form.avatar(placeholder="New image url", class="form-control") }}
+<!-- username -->
+      {% if form.username.errors %}
+        {% for error in form.username.errors %}
+          <span class="text-danger">
+            {{ error }}
+          </span>
+        {% endfor %}
+      {% endif %}
+      {{ form.username(placeholder="Change username?", value=user.username, class="form-control") }}
+
+<!-- password -->
+      {% if form.password.errors %}
+        {% for error in form.password.errors %}
+          <span class="text-danger">
+            {{ error }}
+          </span>
+        {% endfor %}
+      {% endif %}
+      {{ form.password(placeholder="Re-enter your password", class="form-control") }}
+
+
+<!-- button -->
+  <br>
+      <button type="submit" class="btn btn-success">Edit</button>
+      <a href="{{ url_for('users.show', id=user.id) }}" class="btn-default">Cancel</a>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{%extends 'base.html'%}
+{% block content %}
+<form action="{{ url_for('drinks.index', id=user_id) }}" method="POST">
+  {{ form.csrf_token }}
+  <div>
+    <h1>Got a Drink?</h1>
+    {{ form.name(placeholder="Name", class="form-control") }}
+    <br>
+    <h3>Ingredients</h3>
+    {{ form.ing1(placeholder="First", class="form-control") }}
+    {{ form.ing2(placeholder="Second", class="form-control") }}
+    {{ form.ing3(placeholder="Third", class="form-control") }}
+    {{ form.ing4(placeholder="Fourth", class="form-control") }}
+    {{ form.ing5(placeholder="Fifth", class="form-control") }}
+    {{ form.ing6(placeholder="Sixth", class="form-control") }}
+    {{ form.garnish(placeholder="Garnish", class="form-control") }}
+    <br>
+    <h3>Tell us how you made it.</h3>
+    {{ form.instructions(placeholder="Instructions", class="form-control") }}
+    <br>
+    <h3>Show us how it looks!
+    <br>
+    {{ form.img(placeholder="Image URL", class="form-control") }}
+    <h6><i>trust us, you dont want us to give it a default image</i></h6></h3>
+  </div>
+  <br>
+  <button type="submit" class="btn btn-success">Add my drink!</button>
+  </form>
+</form>
+{% endblock %}

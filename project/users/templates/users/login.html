@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="center text-center" style="padding:1rem;">
+<form class=" text-center form-group" method="POST" action="{{url_for('users.login')}}">
+
+  {{ form.csrf_token }}
+  <p>{{ form.username(placeholder="username") }}
+    <span>
+      {% if form.username.errors %}
+        {% for error in form.username.errors %}
+          {{ error }}
+        {% endfor %}
+      {% endif %}
+    </span>
+  </p>
+  <p>
+    {{ form.password(placeholder="password") }}
+    <span>
+      {% if form.password.errors %}
+        {% for error in form.password.errors %}
+          {{ error }}
+        {% endfor %}
+      {% endif %}
+    </span>
+  </p>
+<button class="btn" type="submit">Log In!</button><br>
+<a class="" href="{{url_for('users.signup')}}">Sign-Up</a>
+</form>
+</div>
+{% endblock %}
+

@@ -1,0 +1,26 @@
+<!-- CARD -->
+<div class="card">
+  <img class="card-img-top card-image img-responsive" src="http://punchdrink.com/wp-content/uploads/2013/09/Perfect-Manhattan-Thumbnail.jpg" alt="Card image cap">
+  <div class="card-block">
+      <h1 class="text-center card-title">Manhattan</h1>
+      <h3 class="lead text-center">J. Robert Oppenheimer</h3>
+      <ul>
+        <li>2oz Rye</li>
+        <li>1oz Sweet Vermouth</li>
+        <li>2dsh Angostura</li>
+        <li>asdasdass</li>
+        <li>asdasdas</li>
+        <li><i>Stir</i></li>
+        <br>
+      </ul>
+        <i class="center"> Served in cocktail glass with a bradied cherry</i>
+      <span class="card-block">
+    <div class="text-center rate ">
+      <a href="#" class="btn btn-success si">¡Si!</a>
+      <a href="#" class="btn btn-primary"><i class="fa fa-star" aria-hidden="true"></i></a>
+      <a href="#" class="btn btn-danger">¡No!</a>
+    </div>
+      </span>
+  </div>
+</div>
+<!-- ENDCARD -->

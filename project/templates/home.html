@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{%for drink in drinks%}
+<!-- CARD -->
+<div class="card">
+  <img class="card-img-top card-image img-responsive" src="{{drink.img}}" alt="Card image cap">
+  <div class="card-block">
+      <h1 class="text-center card-title">{{drink.name}}</h1>
+      <h3 class="lead text-center">{{drink.user.username}}</h3>
+      <h4 class="text-left p-3">
+        {{drink.ing1}}
+        <br>
+        {{drink.ing2}}
+        <br>
+        {{drink.ing3}}
+        <br>
+        {{drink.ing4}}
+        <br>
+        {{drink.ing5}}
+        <br>
+        {{drink.ing6}}
+        <br>
+        <i>{{drink.garnish}}</i>
+        <br>
+      </h4>
+        <i class="center">{{drink.instructions}}</i>
+      <span class="card-block">
+    <div class="text-center rate ">
+      <a href="#" class="btn btn-success si">¡Si!</a>
+      <a href="#" class="btn btn-primary"><i class="fa fa-star" aria-hidden="true"></i></a>
+      <a href="#" class="btn btn-danger">¡No!</a>
+    </div>
+      </span>
+  </div>
+</div>
+<!-- ENDCARD -->
+{% endfor %}
+
+{% endblock %}

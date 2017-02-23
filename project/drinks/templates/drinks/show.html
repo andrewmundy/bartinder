@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-flex">
+<!-- CARD -->
+<div class="card text-capitalize">
+  <img class="card-img-top card-image img-responsive" src="{{drink.img}}" alt="Card image cap">
+  <div class="card-block">
+      <h1 class="text-center card-title">{{drink.name}}</h1>
+      <h3 class="lead text-center">{{drink.user.username}}</h3>
+      <h4 class="text-left p-4">
+       {{drink.ing1}}
+       <br>
+       {{drink.ing2}}
+       <br>
+       {{drink.ing3}}
+       <br>
+       {{drink.ing4}}
+       <br>
+       {{drink.ing5}}
+       <br>
+       {{drink.ing6}}
+       <br>
+       <i>{{drink.garnish}}</i>
+        <br>
+        <i class="center">{{drink.instructions}}</i>
+      </h4>
+      <span class="card-block">
+    <div class="text-center rate ">
+      <a href="#" class="btn btn-success si">¡Si!</a>
+      <a href="#" class="btn btn-primary"><i class="fa fa-star" aria-hidden="true"></i></a>
+      <a href="#" class="btn btn-danger">¡No!</a>
+    </div>
+      </span>
+  </div>
+<!-- ENDCARD -->
+<p>
+<form method="POST" action="{{url_for('drinks.show', drink_id=drink.id, id=drink.user_id)}}?_method=DELETE">
+  <input class="btn btn-danger btm-inline" type="submit" value="X">
+</form>
+<div>
+<!-- <i style="color:black;" class="fa fa-pencil-square-o" aria-hidden="true"></i>
+<i style="color:black;" class="fa fa-3 fa-times-circle" aria-hidden="true"></i> -->
+</div>
+</p>
+</div>
+</div>
+{% endblock %}
