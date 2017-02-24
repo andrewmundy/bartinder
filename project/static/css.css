@@ -153,8 +153,8 @@ div.card {
 }
 
 .card-image {
-    min-height: 320px;
-    width: 30rem;
+    height: auto;
+    max-width: 300px;
 }
 
 .card-title {
