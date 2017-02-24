@@ -40,10 +40,13 @@
                 <!-- FORM -->
                 <div>
                 {% if current_user.is_authenticated %}
-                    <a href="{{url_for('drinks.new', id=current_user.id)}}"><button class="btn newdrink-btn btn-danger">New Drink?</button></a>
+                    <a href="{{url_for('drinks.new', id=current_user.id)}}"><button class="btn newdrink-btn hvr-sink btn-danger">New Drink?</button></a>
                 {% else %}
-                    <h5>Oops, better sign up first</h5>
-                    <a href="{{url_for('users.signup')}}"><button class="btn signup">Sign Up</button></a>
+                    <h5>Lets make sure youre a human first. 
+                        <br>
+                        <h6><i>Or atleast a robot with good taste.</i></h6>
+                    </h5>
+                    <a href="{{url_for('users.signup')}}"><button class="btn signup hvr-sink newdrink-btn">Sign Up</button></a> <a href="{{url_for('users.login')}}"><button class="btn signup newdrink-btn">Login</button></a>
                 {% endif %}
                 </div>
             </div>
@@ -68,8 +71,8 @@
               <div class="card-block">
                 <!-- STUFF -->
                 <h2 class="text-white">
-                    <a class="dropdown-item " href="{{url_for('users.edit', id=current_user.id)}}">Settings</a>
-                    <a class="dropdown-item " href="{{url_for('users.logout')}}">Logout</a> 
+                    <a class="dropdown-item hvr-sink" href="{{url_for('users.edit', id=current_user.id)}}">Settings</a>
+                    <a class="dropdown-item hvr-sink" href="{{url_for('users.logout')}}">Logout</a> 
                   {% else %}
                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                   <div><i class="fa fa-user-circle-o" aria-hidden="true"></i></div>
@@ -81,7 +84,7 @@
               <div class="card-block">
                 <!-- STUFF -->
                 <h2 class="text-white">
-                    <a class="dropdown-item" href="{{url_for('users.login')}}">Login</a> 
+                    <a href="{{url_for('users.login')}}"><button class="btn signup hvr-sink newdrink-btn">Login</button></a>
                   {% endif%}
                 </h2>
                 </div>
@@ -110,6 +113,7 @@
     <div class="footer text-center">
         <h1 id="footer">Bartindre Corp
         <small>
+        <br>
         <br>
         <i>Connecting you with the drinks that matter most</i>
         <br>38 Super Real St

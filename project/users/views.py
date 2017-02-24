@@ -68,8 +68,8 @@ def login():
 @login_required
 def logout():
     logout_user()
-    flash({ 'text': "You have successfully logged out.", 'status': 'success' })
-    return redirect(url_for('users.login'))
+    flash({ 'text': "👋 Sayonara! 👋", 'status': 'success' })
+    return redirect(url_for('root'))
 
 @users_blueprint.route('/<int:id>/edit')
 @login_required
