@@ -55,6 +55,7 @@
     animation-fill-mode: forwards;
     animation-direction: normal, alternate;
 }
+
 /* Sink */
 .hvr-sink {
   display: inline-block;

@@ -11,15 +11,31 @@
       <h4 class="text-left p-4">
        {{drink.ing1}}
        <br>
+       {% if drink.ing2 is not None %}
        {{drink.ing2}}
        <br>
+       {% endif %}
+
+       {% if drink.ing3 is not None%}
        {{drink.ing3}}
        <br>
+       {% endif %}
+
+       {% if drink.ing4 is not None %}
        {{drink.ing4}}
        <br>
+       {% endif %}
+
+       {% if drink.ing5 is not None %}
        {{drink.ing5}}
        <br>
+       {% endif %}
+
+       {% if drink.ing6 is not None"%}
        {{drink.ing6}}
+       <br>
+       {% endif %}
+
        <br>
        <i>{{drink.garnish}}</i>
         <br>

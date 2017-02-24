@@ -10,18 +10,33 @@
       <h1 class="text-center card-title">{{drink.name}}</h1>
       <h3 class="lead text-center">{{drink.user.username}}</h3>
       <h4 class="text-left p-3">
-        {{drink.ing1}}
-        <br>
-        {{drink.ing2}}
-        <br>
-        {{drink.ing3}}
-        <br>
-        {{drink.ing4}}
-        <br>
-        {{drink.ing5}}
-        <br>
-        {{drink.ing6}}
-        <br>
+       {{drink.ing1}}
+       <br>
+          {% if drink.ing2 %}
+            {{drink.ing2}}
+              <br>
+          {% endif %}
+
+          {% if drink.ing3 %}
+            {{drink.ing3}}
+              <br>
+          {% endif %}
+
+          {% if drink.ing4 %}
+            {{drink.ing4}}
+              <br>
+          {% endif %}
+
+          {% if drink.ing5 %}
+            {{drink.ing5}}
+              <br>
+          {% endif %}
+
+          {% if drink.ing6 %}
+            {{drink.ing6}}
+              <br>
+          {% endif %}
+
         <i>{{drink.garnish}}</i>
         <br>
       </h4>

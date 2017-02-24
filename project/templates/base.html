@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <title>Bartinder</title>
     <script src="https://use.fontawesome.com/6c7cf6fe39.js"></script>
+    <script>
+      UPLOADCARE_LOCALE = "en";
+      UPLOADCARE_TABS = "file url";
+      UPLOADCARE_PUBLIC_KEY = "d3927a2c5ecb87f43205";
+    </script>
+    <script charset="utf-8" src="//ucarecdn.com/libs/widget/2.10.3/uploadcare.full.min.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='keyframes.css') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -13,7 +19,7 @@
 <!-- heading -->
     <div class="header container-fluid text-center padding-topL60px">
         <h1 class="">
-        <a href="/"><i class="header-text icon"><img width="200vmax" src="{{url_for('static',filename='icon.png')}}"></i>
+        <a href="/"><i class="header-text icon hvr-bob"><img width="200vmax" src="{{url_for('static',filename='icon.png')}}"></i>
         </a>
     </h1>
 <!-- search -->
@@ -40,7 +46,7 @@
                 <!-- FORM -->
                 <div>
                 {% if current_user.is_authenticated %}
-                    <a href="{{url_for('drinks.new', id=current_user.id)}}"><button class="btn newdrink-btn hvr-sink btn-danger">New Drink?</button></a>
+                    <a href="{{url_for('drinks.new', id=current_user.id)}}"><button style="font-size:3rem;" class="btn newdrink-btn hvr-sink btn-danger">New Drink?</button></a>
                 {% else %}
                     <h5>Lets make sure youre a human first. 
                         <br>
@@ -120,6 +126,7 @@
         <br>San Francisco CA 94103
         </small></h1>
     </div>
+    <script src="/static/imageupload.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>

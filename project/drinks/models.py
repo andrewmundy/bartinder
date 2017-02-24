@@ -1,6 +1,6 @@
-from project import db 
+from project import db
+from project.drinks.forms import DrinkForm
 from random import choice
-
 
 class Drink(db.Model):
   
@@ -23,12 +23,20 @@ class Drink(db.Model):
   favorite = db.Column(db.Integer)
   user_id = db.Column(db.Integer, db.ForeignKey('users.id', ondelete='CASCADE'))
 
-  def __init__(self, username=None, ing1=None, name=None, ing3=None, ing4=None, ing5=None, ing6=None, garnish=None, instructions=None, likes=None, dislikes=None, favorite=None, user_id=None, img=None, ing2=None):
+  def __init__(self, user_id, measurments="", username="", ing1="", name="", ing3="", ing4="", ing5="", ing6="", garnish="", instructions="", likes=0, dislikes=0, favorite=0, img="", ing2=""):
     if img is "":
       img = choice(['http://s3.amazonaws.com/auteurs_production/images/film/cocktail/w1280/cocktail.jpg',
       'https://s-media-cache-ak0.pinimg.com/originals/d6/90/37/d69037f83ebde80a94cd2e23d8a8a617.jpg',
       'http://i.dailymail.co.uk/i/pix/2014/11/09/1415515863112_wps_42_Shark_Bite.jpg'
     ])
+
+    ing1 = None if ing1 == "" else "{} {}".format(measurments[0], ing1)
+    ing2 = None if ing2 == "" else "{} {}".format(measurments[0], ing2)
+    ing3 = None if ing3 == "" else "{} {}".format(measurments[0], ing3)
+    ing4 = None if ing4 == "" else "{} {}".format(measurments[0], ing4)
+    ing5 = None if ing5 == "" else "{} {}".format(measurments[0], ing5)
+    ing6 = None if ing6 == "" else "{} {}".format(measurments[0], ing6)
+ 
 
     self.user_id = user_id
     self.name = name

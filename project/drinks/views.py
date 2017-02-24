@@ -23,15 +23,16 @@ def index(id):
             user_id=id,
             name=form.name.data,
             username=form.username.data,
-            ing1 = form.ing1.data,
             img = form.img.data,
+            ing1 = form.ing1.data,
             ing2 = form.ing2.data,
             ing3 = form.ing3.data,
             ing4 = form.ing4.data, 
             ing5 = form.ing5.data,
             ing6 = form.ing6.data,
             garnish = form.garnish.data,
-            instructions = form.instructions.data
+            instructions = form.instructions.data,
+            measurments = [form.measurments1.data, form.measurments2.data, form.measurments3.data, form.measurments4.data, form.measurments5.data, form.measurments6.data]
           )
           db.session.add(new_drink)
           db.session.commit()

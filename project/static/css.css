@@ -2,12 +2,9 @@ html {
   height: 100%;
 }
 body {
-    background: url('header.jpg') no-repeat center center fixed;
+    background: url('header.jpg') no-repeat center fixed;
     background-size: cover;
     padding: 0;
-}
-body > .container{
-    padding-top:60px
 }
 h1.icon{
     margin-bottom: 1rem;
@@ -191,4 +188,17 @@ h1#footer{
     padding: 3rem;
     text-shadow:  3px -2px 0px #f7f7f9;
     margin-top: 2vh;
+}
+
+/* Landscape phones and down */
+@media (max-width: 620px) { 
+    .ingredient-input{
+        width: 300px;
+    }
+}
+
+@media (max-width: 520px) { 
+    .ingredient-input{
+        width: 200px;
+    }
 }

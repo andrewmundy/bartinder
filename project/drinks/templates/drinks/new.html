@@ -1,8 +1,9 @@
 {%extends 'base.html'%}
 {% block content %}
+<div class="container-flex">
 <form action="{{ url_for('drinks.index', id=id) }}" method="POST">
   {{ form.csrf_token }}
-  <div>
+
     <h1>Got a Drink?</h1>
       {% if form.name.errors %}
         {% for error in form.name.errors %}
@@ -21,24 +22,44 @@
           </span>
         {% endfor %}
       {% endif %}
-    {{ form.ing1(placeholder="First", class="form-control") }}
-    {{ form.ing2(placeholder="Second", class="form-control") }}
-    {{ form.ing3(placeholder="Third", class="form-control") }}
-    {{ form.ing4(placeholder="Fourth", class="form-control") }}
-    {{ form.ing5(placeholder="Fifth", class="form-control") }}
-    {{ form.ing6(placeholder="Sixth", class="form-control") }}
-    {{ form.garnish(placeholder="Garnish", class="form-control") }}
-    <br>
+    <div class="container ingredient-input"> 
+    <div class="row">
+      {{ form.measurments1(placeholder="Amounts", class="col-md-2 form-control ingredient-input") }} {{ form.ing1(placeholder="First", class="col form-control") }}
+    </div>
+
+    <div class="row">
+      {{ form.measurments2(placeholder="Amounts", class="col-md-2 form-control ingredient-input") }} {{ form.ing2(placeholder="Second", class="col form-control") }}
+    </div>
+  
+    <div class="row">
+      {{ form.measurments3(placeholder="Amounts", class="col-md-2 form-control ingredient-input") }} {{ form.ing3(placeholder="Third", class="col form-control") }}
+    </div>
+  
+    <div class="row">
+      {{ form.measurments4(placeholder="Amounts", class="col-md-2 form-control ingredient-input") }} {{ form.ing4(placeholder="Third", class="col form-control") }}
+    </div>
+    
+    <div class="row">
+      {{ form.measurments5(placeholder="Amounts", class="col-md-2 form-control ingredient-input") }} {{ form.ing5(placeholder="Third", class="col form-control") }}
+    </div>
+    
+    <div class="row">
+      {{ form.measurments6(placeholder="Amounts", class="col-md-2 form-control ingredient-input") }} {{ form.ing6(placeholder="Third", class="col-md form-control") }}
+    </div>
+      <br>
+    {{ form.garnish(placeholder="Garnish?", class="form-control") }}
+      <br>
     <h3>Tell us how you made it.</h3>
     {{ form.instructions(placeholder="Instructions", class="form-control") }}
     <br>
     <h3>Show us how it looks!
     <br>
-    {{ form.img(placeholder="Image URL", class="form-control") }}
-    <h6><i>trust us, you dont want one of default images</i></h6></h3>
-  </div>
+      {{form.img(type="hidden", role="uploadcare-uploader", id="imageupload" )}}
+      </div>
+      <br>
+    <h6><i>trust us, you dont want one of the default images</i></h6></h3>
   <br>
-  <button type="submit" class="btn newdrink-btn hvr-sink btn-warning">Add my drink!</button>
+  <button type="submit" class="btn newdrink-btn hvr-sink btn-warning">ADD DRINK</button>
   </form>
-</form>
+</div>
 {% endblock %}
