@@ -1,12 +1,26 @@
 {%extends 'base.html'%}
 {% block content %}
-<form action="{{ url_for('drinks.index', id=user_id) }}" method="POST">
+<form action="{{ url_for('drinks.index', id=id) }}" method="POST">
   {{ form.csrf_token }}
   <div>
     <h1>Got a Drink?</h1>
+      {% if form.name.errors %}
+        {% for error in form.name.errors %}
+          <span class="text-danger">
+            Whoa, you should probably name your drink. Also, you're forced to.
+          </span>
+        {% endfor %}
+      {% endif %}
     {{ form.name(placeholder="Name", class="form-control") }}
     <br>
     <h3>Ingredients</h3>
+      {% if form.name.errors %}
+        {% for error in form.name.errors %}
+          <span class="text-danger">
+          Listen, cmon, okay. 
+          </span>
+        {% endfor %}
+      {% endif %}
     {{ form.ing1(placeholder="First", class="form-control") }}
     {{ form.ing2(placeholder="Second", class="form-control") }}
     {{ form.ing3(placeholder="Third", class="form-control") }}

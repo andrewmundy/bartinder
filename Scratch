@@ -1,26 +1,29 @@
-<!-- CARD -->
-<div class="card">
-  <img class="card-img-top card-image img-responsive" src="http://punchdrink.com/wp-content/uploads/2013/09/Perfect-Manhattan-Thumbnail.jpg" alt="Card image cap">
-  <div class="card-block">
-      <h1 class="text-center card-title">Manhattan</h1>
-      <h3 class="lead text-center">J. Robert Oppenheimer</h3>
-      <ul>
-        <li>2oz Rye</li>
-        <li>1oz Sweet Vermouth</li>
-        <li>2dsh Angostura</li>
-        <li>asdasdass</li>
-        <li>asdasdas</li>
-        <li><i>Stir</i></li>
-        <br>
-      </ul>
-        <i class="center"> Served in cocktail glass with a bradied cherry</i>
-      <span class="card-block">
-    <div class="text-center rate ">
-      <a href="#" class="btn btn-success si">¡Si!</a>
-      <a href="#" class="btn btn-primary"><i class="fa fa-star" aria-hidden="true"></i></a>
-      <a href="#" class="btn btn-danger">¡No!</a>
-    </div>
-      </span>
-  </div>
-</div>
-<!-- ENDCARD -->
+        <div class="col">
+        <div id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="" role="tab" id="headingOne">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <!-- ICON -->
+                  {% if current_user.is_authenticated %}
+                  <img class="rounded-circle text-center hvr-buzz-out" src="{{current_user.avatar}}" width="70" height="70" class="d-inline-block align-top">
+                  <!---->
+                </a>
+            </div>
+                <!-- CONTENT -->
+            <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+              <div class="card-block">
+                <!-- FORM -->
+                "HELLO"
+                <img class="rounded-circle dropdown-toggle text-center" data-toggle="dropdown" src="{{current_user.avatar}}" width="100" height="100" class="d-inline-block align-top" alt="">
+                <br>
+                    <button class="dropdown-item btn" href="{{url_for('users.edit', id=current_user.id)}}">Settings</button>
+                    <button class="dropdown-item" href="{{url_for('users.logout')}}">Logout</button> 
+                  {% else %}
+                    <i class="fa fa-user-circle-o" aria-hidden="true"></i></div>
+                    <div class="dropdown-menu dropdown-menu-right menu text-center" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="{{url_for('users.login')}}">Login</a> 
+                  {% endif%}
+                </div>
+            </div>
+          </div>
+        </div>
+        </div>

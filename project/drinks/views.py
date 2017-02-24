@@ -40,7 +40,7 @@ def index(id):
             return render_template('drinks/new.html', form=form)
         flash({'text': "Cool", 'status': 'success'})
         return redirect(url_for('root'))
-    return render_template('drinks/new.html', form=form)
+    return render_template('drinks/new.html', id=id, form=form)
 
 @drinks_blueprint.route('/new')
 @login_required

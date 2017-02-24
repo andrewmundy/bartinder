@@ -23,7 +23,7 @@ class Drink(db.Model):
   favorite = db.Column(db.Integer)
   user_id = db.Column(db.Integer, db.ForeignKey('users.id', ondelete='CASCADE'))
 
-  def __init__(self, username, ing1=None, name=None, ing3=None, ing4=None, ing5=None, ing6=None, garnish=None, instructions=None, likes=None, dislikes=None, favorite=None, user_id=None, img=None, ing2=None):
+  def __init__(self, username=None, ing1=None, name=None, ing3=None, ing4=None, ing5=None, ing6=None, garnish=None, instructions=None, likes=None, dislikes=None, favorite=None, user_id=None, img=None, ing2=None):
     if img is "":
       img = choice(['http://s3.amazonaws.com/auteurs_production/images/film/cocktail/w1280/cocktail.jpg',
       'https://s-media-cache-ak0.pinimg.com/originals/d6/90/37/d69037f83ebde80a94cd2e23d8a8a617.jpg',

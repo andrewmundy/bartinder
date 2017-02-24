@@ -1,7 +1,13 @@
+html {
+  height: 100%;
+}
 body {
     background: url('header.jpg') no-repeat center center fixed;
     background-size: cover;
     padding: 0;
+}
+body > .container{
+    padding-top:60px
 }
 h1.icon{
     margin-bottom: 1rem;
@@ -64,7 +70,15 @@ i.header-text:hover {
     text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 5px 0 #b9b9b9, 0 7px 0 #aaa, 0 8px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15), 0px 1rem 5rem black;
 }
 
+a.dropdown-item{
+    color:white;
+    background:none;
 
+}
+a.dropdown-item:hover{
+    background:none;
+    color:orange;
+}
 /*SEARCH*/
 
 input.search::placeholder {
@@ -100,9 +114,16 @@ div.menu{
 	text-shadow: none;
 } 
 
+.newdrink-btn{
+    text-shadow: -1px 1px purple, -2px 2px purple, -3px 3px purple, -4px 4px purple, -5px 5px purple, -6px 6px purple, -7px 7px purple, -8px 8px purple, -9px 9px purple, -10px 10px purple, -11px 11px purple, -12px 12px purple;
+    background: linear-gradient(135deg, rgba(255,136,50,1) 12%,rgba(117,0,89,1) 93%);
+    padding: 5px 13px 0px 8px !important;
+    font-size:3rem !important;
+}   
+
 /*CARD*/
 
-a.btn {
+a.butt {
     padding-top: 0;
     font-style: oblique;
     font-size: 3rem;
@@ -140,7 +161,7 @@ div.card {
     text-shadow: -3px 4px #000000;
     color: white;
     font-size: 3rem;
-    margin-top: -32px;
+    margin-top: -52px;
 }
 
 .glass::before {
@@ -149,11 +170,15 @@ div.card {
 }
 
 /* FOOTER */
+h1#footer{
+    font-size:2em;
+    background: linear-gradient(135deg, rgba(255,136,50,1) 34%,rgba(117,0,89,1) 63%,rgba(117,0,89,1) 63%); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
 .footer {
-    background: radial-gradient(ellipse at center, #282828 0%, #190d0d 100%);
     padding: 5rem;
-    color: rgba(236, 238, 239, 0.66);
-    text-shadow: 0px 2px 0px black;
-    margin-top: 1rem;
+    text-shadow:  3px -2px 0px #f7f7f9;
+    margin-top: 5vh;
 }
