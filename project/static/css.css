@@ -66,10 +66,6 @@ i.header-text:hover {
     text-decoration: none;
 }
 
-.threedeep {
-    text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 5px 0 #b9b9b9, 0 7px 0 #aaa, 0 8px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15), 0px 1rem 5rem black;
-}
-
 a.dropdown-item{
     color:white;
     background:none;
@@ -77,12 +73,16 @@ a.dropdown-item{
 }
 a.dropdown-item:hover{
     background:none;
-    color:orange;
+    color:#d9534f;
 }
 /*SEARCH*/
 
 input.search::placeholder {
     color: rgba(255, 255, 255, 0.6);
+}
+
+.signup{
+
 }
 
 input.search {
@@ -115,10 +115,13 @@ div.menu{
 } 
 
 .newdrink-btn{
-    text-shadow: -1px 1px purple, -2px 2px purple, -3px 3px purple, -4px 4px purple, -5px 5px purple, -6px 6px purple, -7px 7px purple, -8px 8px purple, -9px 9px purple, -10px 10px purple, -11px 11px purple, -12px 12px purple;
+    border-width: 0px 0px 10px !important;
     background: linear-gradient(135deg, rgba(255,136,50,1) 12%,rgba(117,0,89,1) 93%);
-    padding: 5px 13px 0px 8px !important;
-    font-size:3rem !important;
+    padding: 5px 13px 0px 8px;
+    font-size:3rem;
+    text-shadow: 0px 2px #d88683, -4px 2px 10px rgba(0, 0, 0, 0.33);
+    border-color: #c12924;
+    font-weight: bold;
 }   
 
 /*CARD*/

@@ -46,7 +46,7 @@ def index(id):
 @login_required
 @ensure_correct_user
 def new(id):
-  return render_template('drinks/new.html', form=DrinkForm(), user_id=id)
+  return render_template('drinks/new.html', form=DrinkForm(), id=id)
 
 @drinks_blueprint.route('/<int:drink_id>', methods =["GET", "DELETE"])
 def show(id, drink_id):
