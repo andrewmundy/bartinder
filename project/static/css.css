@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background: url('header.jpg') no-repeat center fixed;
+    background: url('bgs/header.jpg') no-repeat fixed;
     background-size: cover;
     padding: 0;
 }
@@ -12,7 +12,17 @@ h1.icon {
     margin-bottom: 1rem;
     animation: hvr-bob 1s infinite;
 }
+.bgchange{    
+    background: rgba(0, 0, 0, 0.44);
+    border: none;
+    margin: 1rem;
+    font-size: 2rem;
+    border-radius: 12px;
+    padding: 6px;
+    color:rgba(255, 255, 255, 0.90);
+    cursor:pointer;
 
+}
 .bod {
     background: rgba(255, 255, 255, 0.98);
     box-shadow: 0px 1rem 1rem rgba(0, 0, 0, 0.5);
@@ -223,5 +233,8 @@ h1#footer {
 @media (max-width: 520px) {
     .ingredient-input {
         width: 200px;
+    }
+    .bgchange{
+        font-size:1.5rem;
     }
 }

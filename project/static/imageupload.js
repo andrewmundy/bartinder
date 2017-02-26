@@ -1,8 +1,4 @@
-uploadcare.openDialog(null, {
-  crop: "disabled"
-}).done(function(file) {
-  file.promise().done(function(fileInfo){
-    var imgsrc = fileInfo.cdnUrl
-    $("#imageupload").val(imgsrc)
-  });
+$( "#bgchange" ).on( "click", function() {
+	var random = Math.ceil(Math.random()*7)
+  	$("body").css({"background": "url('static/bgs/trop"+random+".jpg') fixed" } );
 });
