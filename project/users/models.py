@@ -20,3 +20,4 @@ class User(db.Model, UserMixin):
 		self.avatar = avatar
 
 
+

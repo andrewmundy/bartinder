@@ -14,7 +14,12 @@ drinks_blueprint = Blueprint(
 )
 
 @drinks_blueprint.route('/', methods=["GET","POST"])
-def index(id):
+# def index(id):
+
+@drinks_blueprint.route('/new', methods=["GET","POST"])
+@login_required
+@ensure_correct_user
+def new(id):
     if current_user.get_id() == str(id):
       form = DrinkForm()
       if form.validate():
@@ -43,17 +48,12 @@ def index(id):
         return redirect(url_for('root'))
     return render_template('drinks/new.html', id=id, form=form)
 
-@drinks_blueprint.route('/new')
-@login_required
-@ensure_correct_user
-def new(id):
-  return render_template('drinks/new.html', form=DrinkForm(), id=id)
-
 @drinks_blueprint.route('/<int:drink_id>', methods =["GET", "DELETE"])
 def show(id, drink_id):
   found_drink = Drink.query.get(drink_id)
   if request.method == b"DELETE" and int(current_user.get_id()) == id:
     db.session.delete(found_drink)
     db.session.commit()
+    flash({'text': "⚡️ZAP⚡️ drink deleted", 'status': 'success'})
     return redirect(url_for('root', id=id))
   return render_template('drinks/show.html', drink=found_drink)

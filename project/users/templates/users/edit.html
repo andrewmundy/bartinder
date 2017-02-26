@@ -25,7 +25,7 @@
         {% endfor %}
       {% endif %}
       {{ form.username(placeholder="Change username?", value=user.username, class="form-control") }}
-
+<br>
 <!-- password -->
       {% if form.password.errors %}
         {% for error in form.password.errors %}
@@ -34,13 +34,26 @@
           </span>
         {% endfor %}
       {% endif %}
-      {{ form.password(placeholder="Re-enter your password", class="form-control") }}
+      {{ form.password(placeholder="Password", class="form-control") }}
+
+      {% if form.confirm.errors %}
+        {% for error in form.confirm.errors %}
+          <span class="text-danger">
+            {{ error }}
+          </span>
+        {% endfor %}
+      {% endif %}
+      {{ form.confirm(placeholder="Confirm", class="form-control") }}
+
 
 
 <!-- button -->
   <br>
-      <button type="submit" class="btn btn-success">Edit</button>
-      <a href="{{ url_for('users.show', id=user.id) }}" class="btn-default">Cancel</a>
+      <button type="submit" class="btn signup hvr-sink newdrink-btn">Edit</button>
+        <br>
+          or
+        <br>
+      <button href="{{ url_for('users.show', id=user.id) }}" class="btn signup hvr-sink newdrink-btn">Cancel</button>
     </form>
   </div>
 </div>

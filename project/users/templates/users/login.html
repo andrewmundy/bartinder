@@ -4,27 +4,19 @@
 <form class=" text-center form-group" method="POST" action="{{url_for('users.login')}}">
 
   {{ form.csrf_token }}
-  <p>{{ form.username(placeholder="username") }}
-    <span>
-      {% if form.username.errors %}
-        {% for error in form.username.errors %}
-          {{ error }}
-        {% endfor %}
-      {% endif %}
-    </span>
+  
+  <p>
+    {{ form.username(placeholder="username") }}
   </p>
   <p>
     {{ form.password(placeholder="password") }}
-    <span>
-      {% if form.password.errors %}
-        {% for error in form.password.errors %}
-          {{ error }}
-        {% endfor %}
-      {% endif %}
-    </span>
   </p>
-<button class="btn newdrink-btn" type="submit">Log In!</button><br>
-<a class="" href="{{url_for('users.signup')}}">Sign-Up</a>
+
+<button class="btn hvr-sink newdrink-btn" type="submit">Log In!</button>
+  <br>
+    or
+  <br>
+<button class="btn hvr-sink newdrink-btn" href="{{url_for('users.signup')}}">Sign-Up</a>
 </form>
 </div>
 {% endblock %}

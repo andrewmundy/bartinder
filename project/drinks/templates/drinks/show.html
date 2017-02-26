@@ -3,62 +3,59 @@
 {% block content %}
 <div class="container-flex">
 <!-- CARD -->
-<div class="card text-capitalize">
+<div class="card">
   <img class="card-img-top card-image img-responsive" src="{{drink.img}}" alt="Card image cap">
   <div class="card-block">
-      <h1 class="text-center card-title">{{drink.name}}</h1>
+        <h1  class="text-center card-title">{{drink.name}}</h1>
       <h3 class="lead text-center">{{drink.user.username}}</h3>
-      <h4 class="text-left p-4">
+      <h4 class="text-left p-3">
        {{drink.ing1}}
        <br>
-       {% if drink.ing2 is not None %}
-       {{drink.ing2}}
-       <br>
-       {% endif %}
+          {% if drink.ing2 %}
+            {{drink.ing2}}
+              <br>
+          {% endif %}
 
-       {% if drink.ing3 is not None%}
-       {{drink.ing3}}
-       <br>
-       {% endif %}
+          {% if drink.ing3 %}
+            {{drink.ing3}}
+              <br>
+          {% endif %}
 
-       {% if drink.ing4 is not None %}
-       {{drink.ing4}}
-       <br>
-       {% endif %}
+          {% if drink.ing4 %}
+            {{drink.ing4}}
+              <br>
+          {% endif %}
 
-       {% if drink.ing5 is not None %}
-       {{drink.ing5}}
-       <br>
-       {% endif %}
+          {% if drink.ing5 %}
+            {{drink.ing5}}
+              <br>
+          {% endif %}
 
-       {% if drink.ing6 is not None"%}
-       {{drink.ing6}}
-       <br>
-       {% endif %}
+          {% if drink.ing6 %}
+            {{drink.ing6}}
+              <br>
+          {% endif %}
 
-       <br>
-       <i>{{drink.garnish}}</i>
+        <i>{{drink.garnish}}</i>
         <br>
-        <i class="center">{{drink.instructions}}</i>
       </h4>
+        <i class="center">{{drink.instructions}}</i>
       <span class="card-block">
-    <div class="text-center container-fluid rate row">
-      <a href="#" class="btn btn-success si col">¡Si!</a>
-      <a href="#" class="btn btn-primary col"><i class="fa fa-star" aria-hidden="true"></i></a>
-      <a href="#" class="btn btn-danger col">¡No!</a>
+    <div class="text-center rate row">
+      <a href="#" class="btn btn-success col- butt si">¡Si!</a>
+      <a href="#" class="btn btn-primary col- butt"><i class="fa fa-star" aria-hidden="true"></i></a>
+      <a href="#" class="btn btn-danger col- butt">¡No!</a>
     </div>
+    <br>
+    {% if current_user.id == drink.user_id %}
+      <form method="POST" action="{{url_for('drinks.show', drink_id=drink.id, id=drink.user_id)}}?_method=DELETE">
+          <input class="btn btn-danger btm-inline" type="submit" value="X">
+      </form>
+    {% endif %}
       </span>
   </div>
-<!-- ENDCARD -->
-<p>
-<form method="POST" action="{{url_for('drinks.show', drink_id=drink.id, id=drink.user_id)}}?_method=DELETE">
-  <input class="btn btn-danger btm-inline" type="submit" value="X">
-</form>
-<div>
-<!-- <i style="color:black;" class="fa fa-pencil-square-o" aria-hidden="true"></i>
-<i style="color:black;" class="fa fa-3 fa-times-circle" aria-hidden="true"></i> -->
 </div>
-</p>
+<!-- ENDCARD -->
 </div>
 </div>
 {% endblock %}

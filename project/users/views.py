@@ -1,6 +1,6 @@
 from flask import redirect, render_template, request, url_for, Blueprint, flash
 from project.users.models import User
-from project.users.forms import UserForm
+from project.users.forms import UserForm, LoginForm
 from project import db,bcrypt
 from sqlalchemy.exc import IntegrityError
 from flask_login import login_user, logout_user, current_user, login_required
@@ -30,37 +30,42 @@ def home():
 def signup():
     form = UserForm()
     if request.method == "POST":
-        if form.validate():
-            try:
-                new_user = User(
-                  username=form.username.data,
-                  password=form.password.data
-                )
-                if form.avatar.data:
-                    new_user.avatar = form.avatar.data
-                db.session.add(new_user)
-                db.session.commit()
-                login_user(new_user)
-            except IntegrityError as e:
-                flash({'text': "Username already taken", 'status': 'danger'})
-                return render_template('users/signup.html', form=form)
-            flash({'text': "Oh hey {}, welcome to Bartinder!".format(new_user.username), 'status': 'success'})
-            return redirect(url_for('root'))
+        if not form.errors:
+            if form.validate():
+                try:
+                    new_user = User(
+                      username=form.username.data,
+                      password=form.password.data
+                    )
+                    if form.avatar.data:
+                        new_user.avatar = form.avatar.data
+                    db.session.add(new_user)
+                    db.session.commit()
+                    login_user(new_user)
+                except IntegrityError as e:
+                    flash({'text': "Username already taken", 'status': 'danger'})
+                    return render_template('users/signup.html', form=form)
+                flash({'text': "Oh hey {}, welcome to Bartinder!".format(new_user.username), 'status': 'success'})
+                return redirect(url_for('root'))
+        flash({'text': str(list(form.errors.values())).replace('[','').replace(']',''), 'status': 'danger'})
     return render_template('users/signup.html', form=form)
 
 @users_blueprint.route('/login', methods = ["GET", "POST"])
 def login():
-    form = UserForm()
+    form = LoginForm()
     if request.method == "POST":
-        if form.validate():
-            found_user = User.query.filter_by(username = form.username.data).first()
-            if found_user:
-                authenticated_user = bcrypt.check_password_hash(found_user.password, form.password.data)
-                if authenticated_user:
-                    login_user(found_user)
-                    flash({'text': "Hello, {}!".format(found_user.username), 'status': 'success'})
-                    return redirect(url_for('root'))
-        flash({'text': "Invalid credentials.", 'status': 'danger'})
+        if not form.errors:
+            if form.validate():
+                found_user = User.query.filter_by(username = form.username.data).first()
+                if found_user:
+                    authenticated_user = bcrypt.check_password_hash(found_user.password, form.password.data)
+                    if authenticated_user:
+                        login_user(found_user)
+                        flash({'text': "Hello, {}!".format(found_user.username), 'status': 'success'})
+                        return redirect(url_for('root'))
+            flash({'text':  "Try again", 'status': 'danger'})
+            return render_template('users/login.html', form=form)
+        flash({'text':  str(list(form.errors.values())).replace('[','').replace(']',''), 'status': 'danger'})
         return render_template('users/login.html', form=form)
     return render_template('users/login.html', form=form)
 

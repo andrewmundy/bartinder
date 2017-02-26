@@ -30,7 +30,7 @@
         <div class="row nav-bar">
             <div class="col text-left"><i class="fa fa-star" aria-hidden="true"></i></div>
 
-<!-- PLUS -->
+<!-- ADD DRINK -->
         <div class="col">
         <div id="accordion" role="tablist" aria-multiselectable="true">
             <div class="" role="tab" id="headingOne">
@@ -52,16 +52,15 @@
                         <br>
                         <h6><i>Or atleast a robot with good taste.</i></h6>
                     </h5>
-                    <a href="{{url_for('users.signup')}}"><button class="btn signup hvr-sink newdrink-btn">Sign Up</button></a> <a href="{{url_for('users.login')}}"><button class="btn signup newdrink-btn">Login</button></a>
+                    <a href="{{url_for('users.signup')}}"><button class="btn signup hvr-sink newdrink-btn">Sign Up</button></a> <a href="{{url_for('users.login')}}"><button class="btn signup newdrink-btn hvr-sink">Login</button></a>
                 {% endif %}
                 </div>
             </div>
           </div>
         </div>
         </div>
-<!-- END PLUS -->
 
-<!-- DROPDOWN -->
+<!-- USER -->
         <div class="col text-right">
         <div id="accordion" role="tablist" aria-multiselectable="true">
             <div class="" role="tab" id="headingTwo">
@@ -91,6 +90,7 @@
                 <!-- STUFF -->
                 <h2 class="text-white">
                     <a href="{{url_for('users.login')}}"><button class="btn signup hvr-sink newdrink-btn">Login</button></a>
+                    <a href="{{url_for('users.signup')}}"><button class="btn signup hvr-sink newdrink-btn">Signup</button></a>
                   {% endif%}
                 </h2>
                 </div>
@@ -98,7 +98,6 @@
           </div>
         </div>
         </div>
-<!-- END DROPDOWN -->
         </div>
     </div>
 <!-- /// BODY /// -->

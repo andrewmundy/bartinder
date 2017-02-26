@@ -5,4 +5,54 @@
 <h1>Welcome back {{current_user.username}}!</h1>
 <a href="{{url_for('users.edit', id=current_user.id)}}">Edit your profile</a>
 </div>
+
+<div class="card">
+<a href="{{url_for('drinks.show',drink_id=drink.id, id=drink.user_id)}}">
+  <img class="card-img-top card-image img-responsive" src="{{drink.img}}" alt="Card image cap"></a>
+  <div class="card-block">
+      <a href="{{url_for('drinks.show',drink_id=drink.id, id=drink.user_id)}}">
+        <h1  class="text-center card-title">{{drink.name}}</h1>
+      </a>
+      <h3 class="lead text-center">{{drink.user.username}}</h3>
+      <h4 class="text-left p-3">
+       {{drink.ing1}}
+       <br>
+          {% if drink.ing2 %}
+            {{drink.ing2}}
+              <br>
+          {% endif %}
+
+          {% if drink.ing3 %}
+            {{drink.ing3}}
+              <br>
+          {% endif %}
+
+          {% if drink.ing4 %}
+            {{drink.ing4}}
+              <br>
+          {% endif %}
+
+          {% if drink.ing5 %}
+            {{drink.ing5}}
+              <br>
+          {% endif %}
+
+          {% if drink.ing6 %}
+            {{drink.ing6}}
+              <br>
+          {% endif %}
+
+        <i>{{drink.garnish}}</i>
+        <br>
+      </h4>
+        <i class="center">{{drink.instructions}}</i>
+      <span class="card-block">
+    <div class="text-center rate row">
+      <a href="#" class="btn btn-success col- butt si">¡Si!</a>
+      <a href="#" class="btn btn-primary col- butt"><i class="fa fa-star" aria-hidden="true"></i></a>
+      <a href="#" class="btn btn-danger col- butt">¡No!</a>
+    </div>
+      </span>
+  </div>
+</div>
 {% endblock %}
