@@ -75,7 +75,8 @@
             <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingOne">
               <div class="card-block">
                 <!-- STUFF -->
-                <h2 class="text-white">
+                <h2 class="text-white text-right">
+                    <p class="lead">Oh hey {{current_user.username}}</p>
                     <a class="dropdown-item hvr-sink" href="{{url_for('users.edit', id=current_user.id)}}">Settings</a>
                     <a class="dropdown-item hvr-sink" href="{{url_for('users.logout')}}">Logout</a> 
                   {% else %}
