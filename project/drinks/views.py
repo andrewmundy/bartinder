@@ -42,11 +42,11 @@ def new(id):
           db.session.add(new_drink)
           db.session.commit()
         except IntegrityError as e:
-            flash({'text': "Oops", 'status': 'danger'})
-            return render_template('drinks/new.html', form=form)
+          flash({'text': "Oops", 'status': 'danger'})
+          return render_template('drinks/new.html', form=form)
         flash({'text': "Cool", 'status': 'success'})
         return redirect(url_for('root'))
-    return render_template('drinks/new.html', id=id, form=form)
+      return render_template('drinks/new.html', id=id, form=form)
 
 @drinks_blueprint.route('/<int:drink_id>', methods =["GET", "DELETE"])
 def show(id, drink_id):

@@ -44,26 +44,12 @@
   {{ form.csrf_token }}
 
     <h1>Got a Drink?</h1>
-      {% if form.name.errors %}
-        {% for error in form.name.errors %}
-          <span class="text-danger">
-            {{error}}
-          </span>
-        {% endfor %}
-      {% endif %}
     {{ form.name(placeholder="Name", class="form-control") }}
     <br>
     {{form.img(type="hidden", role="uploadcare-uploader", id="imageupload")}}
-      <h6><i class="text-muted">trust us, you dont want one of the default images</i></h6></h3>
+    <br>
     <br>
     <h3>Ingredients</h3>
-      {% if form.name.errors %}
-        {% for error in form.name.errors %}
-          <span class="text-danger">
-            {{error}}
-          </span>
-        {% endfor %}
-      {% endif %}
     <div class="container ingredient-input"> 
     <div class="row">
       {{ form.measurments1(placeholder="Amounts", class="col-md-1 form-control ingredient-input") }} {{ form.ing1(placeholder="First", class="col form-control") }}
