@@ -6,6 +6,7 @@ from flask_login import LoginManager
 import os 
 
 app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL') or 'postgres://localhost/message'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False

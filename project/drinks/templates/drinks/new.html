@@ -14,6 +14,9 @@
       {% endif %}
     {{ form.name(placeholder="Name", class="form-control") }}
     <br>
+    {{form.img(type="hidden", role="uploadcare-uploader", id="imageupload")}}
+      <h6><i class="text-muted">trust us, you dont want one of the default images</i></h6></h3>
+    <br>
     <h3>Ingredients</h3>
       {% if form.name.errors %}
         {% for error in form.name.errors %}
@@ -52,12 +55,8 @@
     <h3>Tell us how you made it.</h3>
     {{ form.instructions(placeholder="Instructions", class="form-control") }}
     <br>
-    <h3>Show us how it looks!
-    <br>
-      {{form.img(type="hidden", role="uploadcare-uploader", id="imageupload" )}}
       </div>
       <br>
-    <h6><i>trust us, you dont want one of the default images</i></h6></h3>
       <br>
     <script src="/static/imageupload.js"></script>
   <button type="submit" class="btn newdrink-btn hvr-sink btn-warning">ADD DRINK</button>

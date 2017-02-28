@@ -16,40 +16,43 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 </head>
 <body>
-<!-- heading -->
-    <div class="row">
-        <button id="bgchange" class="bgchange hvr-sink col-xs-1">🌴🎲🍹</button>
+
+<!-- HEADING BG & ICON -->
+    <div>
+        <button id="bgchange" class="bgchange hvr-sink">🌴🎲🍹</button>
     </div>
     <div class="header container-fluid text-center padding-topL60px">
         <h1 class="">
         <a href="/"><i class="header-text icon hvr-bob"><img width="200vmax" src="{{url_for('static',filename='icon.png')}}"></i>
         </a>
     </h1>
-<!-- search -->
+
+    <!-- SEARCH BAR -->
         <div class="form-group">
             <input class="form-control search" placeholder="&#xF002;" style="font-family:Arial, FontAwesome"></input>
         </div>
-<!-- NAV -->
+
+    <!-- NAV BAR -->
         <div class="row nav-bar">
             <div class="col text-left"><i class="fa fa-star" aria-hidden="true"></i></div>
 
-<!-- ADD DRINK -->
+    <!-- NAV / ADD  -->
         <div class="col">
         <div id="accordion" role="tablist" aria-multiselectable="true">
             <div class="" role="tab" id="headingOne">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  <!-- ICON -->
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">         
+        
+    <!-- NAV / ADD / ICON -->
                     <i class="fa fa-4 fa-plus-circle" aria-hidden="true"></i>
-                  <!---->
                 </a>
             </div>
-                <!-- CONTENT -->
+
+    <!-- NAV / ADD / BUTTON -->
             <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
               <div class="card-block">
-                <!-- FORM -->
-                <div>
+                <div class="row">
                 {% if current_user.is_authenticated %}
-                    <a href="{{url_for('drinks.new', id=current_user.id)}}"><button style="font-size:3rem;" class="btn newdrink-btn hvr-sink btn-danger">New Drink?</button></a>
+                    <a href="{{url_for('drinks.new', id=current_user.id)}}"><button id="newdrink" class="btn newdrink-btn hvr-sink btn-danger">New Drink?</button></a>
                 {% else %}
                     <h5>Lets make sure youre a human first. 
                         <br>
@@ -63,36 +66,41 @@
         </div>
         </div>
 
-<!-- USER -->
+    <!-- NAV / USER -->
         <div class="col text-right">
         <div id="accordion" role="tablist" aria-multiselectable="true">
             <div class="" role="tab" id="headingTwo">
-                  <!-- ICON -->
+            
+        <!-- NAV / USER / ICON -->
                   {% if current_user.is_authenticated %}
                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                  <div><img class=" avatar rounded-circle text-center hvr-buzz-out" src="{{current_user.avatar}}" width="70" height="70" class="d-inline-block align-top"></div>
-                  <!---->
+                  <div><img class="avatar rounded-circle text-center hvr-buzz-out" src="{{current_user.avatar}}" width="70" height="70" class="d-inline-block align-top"></div>
                 </a>
             </div>
-                <!-- CONTENT -->
+
+        <!-- NAV / USER / CONTENT -->
             <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingOne">
-              <div class="card-block">
-                <!-- STUFF -->
-                <h2 class="text-white text-right">
+              <div>
+            
+        <!-- NAV / USER / CURRENT_USER -->
+                <h2 class="text-right">
                     <p class="lead">Oh hey {{current_user.username}}</p>
-                    <a class="dropdown-item hvr-sink" href="{{url_for('users.edit', id=current_user.id)}}">Settings</a>
-                    <a class="dropdown-item hvr-sink" href="{{url_for('users.logout')}}">Logout</a> 
+                    <a id="settings" class="settings p-0 dropdown-item hvr-sink" href="{{url_for('users.edit', id=current_user.id)}}">Settings</a>
+                    <a id="settings" class="settings p-0 dropdown-item hvr-sink" href="{{url_for('users.logout')}}">Logout</a> 
+                  
+    <!-- NAV / USER / NO_USER -->
                   {% else %}
                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            
+        <!-- NAV / USER / NO_USER / ICON -->      
                   <div><i class="fa fa-user-circle-o" aria-hidden="true"></i></div>
-                  <!---->
                 </a>
             </div>
-                <!-- CONTENT -->
+
+        <!-- NAV / USER / NO_USER / CONTENT -->  
             <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingOne">
-              <div class="card-block">
-                <!-- STUFF -->
-                <h2 class="text-white">
+              <div>
+                <h2 class="">
                     <a href="{{url_for('users.login')}}"><button class="btn signup hvr-sink newdrink-btn">Login</button></a>
                     <a href="{{url_for('users.signup')}}"><button class="btn signup hvr-sink newdrink-btn">Signup</button></a>
                   {% endif%}
