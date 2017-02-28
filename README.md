@@ -20,3 +20,10 @@ Now you may be thinking *"Hey this guy is going to take all that funding and bab
 Well, you know what? **Maybe**. 
 
 
+## WTF what can I do? 
+*dont worry I got you covered*
+- Boom! You can make an account 
+- Create a drink
+- Delete that drink
+- Use the patented `🌴MoreTropical™` button to change how tropical you're trying to get
+- Edit your account and upload an avatar
