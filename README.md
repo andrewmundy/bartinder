@@ -1,7 +1,8 @@
 Welcome to Bartindre! 🔥🌴🍹💖🌴🔥
+===================================
 <br><i>Look at those relevant emoji wow</i>
 
-So check this out. As the name implies this is `not`tinder but for drinks. But instead of making a profile and caking on the charm you're crating drink profiles and hoping people like them. 
+So check this out. As the name implies this is ~~tinder~~ but for drinks. But instead of making a profile and caking on the charm you're crating drink profiles and hoping people like them. 
 
 Planned features: 
 - Liking and unliking drinks
