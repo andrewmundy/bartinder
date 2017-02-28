@@ -51,7 +51,7 @@ def new(id):
 @drinks_blueprint.route('/<int:drink_id>', methods =["GET", "DELETE"])
 def show(id, drink_id):
   found_drink = Drink.query.get(drink_id)
-  if request.method == b"DELETE" and int(current_user.get_id()) == id or 1:
+  if request.method == b"DELETE" and int(current_user.get_id()) == id:
       db.session.delete(found_drink)
       db.session.commit()
       flash({'text': "⚡️ZAP⚡️ drink deleted", 'status': 'success'})
