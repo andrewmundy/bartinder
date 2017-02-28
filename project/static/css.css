@@ -8,19 +8,19 @@ body {
     padding: 0;
 }
 
-h1.icon {
+i.icon {
     margin-bottom: 1rem;
-    animation: hvr-bob 1s infinite;
 }
 .bgchange{    
-    background: rgba(0, 0, 0, 0.44);
+    background:none;
     border: none;
     font-size: 2rem;
     border-radius: 12px;
     padding-top: 2px;
-    color:rgba(255, 255, 255, 0.90);
+    color:white;
     cursor:pointer;
     margin:1rem;
+    text-shadow:-1px 6px 8px black;
 }
 .bod {
     background: rgba(255, 255, 255, 0.98);
@@ -192,7 +192,7 @@ div.card {
 .card-title {
     text-shadow: -3px 4px #000000;
     color: white;
-    font-size: 3rem;
+    font-size: 3vmax;
     margin-top: -35px;
 }
 #newdrink{
@@ -228,6 +228,11 @@ h1#footer {
 
 
 /* Landscape phones and down */
+@media (min-width: 1000px){
+    .card-title {
+        font-size:3rem;
+    }
+}
 
 @media (max-width: 620px) {
     .ingredient-input {
@@ -239,8 +244,8 @@ h1#footer {
     .ingredient-input {
         width: 200px;
     }
-    h1#card-title{
-    font-size: 3.5vmax;
+    .card-title{
+    font-size: 5vmax;
     }
     .bgchange{
         font-size:1.5rem;

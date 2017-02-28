@@ -5,9 +5,9 @@ from wtforms.validators import DataRequired
 choices = [('.25oz', '.25oz'),('.5oz', '.5oz'), ('1oz', '1oz'), ('2oz', '2oz'), ('Dash', 'Dash'), ('','-')]
 
 class DrinkForm(FlaskForm):
-  name = StringField('name', validators=[DataRequired()])
+  name = StringField('name', validators=[DataRequired("Hi")])
   username = StringField('username')
-  ing1 = StringField('ing1', validators=[DataRequired()])
+  ing1 = StringField('ing1', validators=[DataRequired("Hey")])
   measurments1 = SelectField(u'Measurements', choices = choices)
   ing2 = StringField('ing2')
   measurments2 = SelectField(u'Measurements', choices = choices)

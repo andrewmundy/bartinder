@@ -1,14 +1,53 @@
 {%extends 'base.html'%}
 {% block content %}
 <div class="container-flex">
-<form action="{{ url_for('drinks.new', id=id) }}" method="POST">
+<div class="controls" id="profs"> 
+<form class="" action="{{ url_for('drinks.new', id=id) }}" method="POST">
+
+<!--  <form class="input-append">
+    <div id="field">
+      <input autocomplete="off" class="input col-8 form-control ingredient-input" id="field1" name="prof1" type="text" placeholder="Type something" data-items="8"/>
+      <button id="b1" class="col-1 btn add-more" type="button">+</button></div>
+  </form>
+
+<script>
+  $(document).ready(function(){
+    var next = 1;
+    $(".add-more").click(function(e){
+        e.preventDefault();
+        var addto = "#field" + next;
+        var addRemove = "#field" + (next);
+        next = next + 1;
+        var newIn = '<input  class="input col-1 form-control ingredient-input" id="field' + next + '" name="field' + next + '" type="text">';
+        var newInput = $(newIn);
+        var removeBtn = '<button id="remove' + (next - 1) + '" class="btn btn-danger remove-me" >-</button></div><div id="field">';
+        var removeButton = $(removeBtn);
+        $(addto).after(newInput);
+        $(addRemove).after(removeButton);
+        $("#field" + next).attr('data-source',$(addto).attr('data-source'));
+        $("#count").val(next);  
+        
+            $('.remove-me').click(function(e){
+                e.preventDefault();
+                var fieldNum = this.id.charAt(this.id.length-1);
+                var fieldID = "#field" + fieldNum;
+                $(this).remove();
+                $(fieldID).remove();
+            });
+    });
+});
+</script> -->
+
+
+
+
   {{ form.csrf_token }}
 
     <h1>Got a Drink?</h1>
       {% if form.name.errors %}
         {% for error in form.name.errors %}
           <span class="text-danger">
-            Whoa, you should probably name your drink. Also, you're forced to.
+            {{error}}
           </span>
         {% endfor %}
       {% endif %}
@@ -21,33 +60,33 @@
       {% if form.name.errors %}
         {% for error in form.name.errors %}
           <span class="text-danger">
-          Listen, cmon, okay. 
+            {{error}}
           </span>
         {% endfor %}
       {% endif %}
     <div class="container ingredient-input"> 
     <div class="row">
-      {{ form.measurments1(placeholder="Amounts", class="col-md-2 form-control ingredient-input") }} {{ form.ing1(placeholder="First", class="col form-control") }}
+      {{ form.measurments1(placeholder="Amounts", class="col-md-1 form-control ingredient-input") }} {{ form.ing1(placeholder="First", class="col form-control") }}
     </div>
 
     <div class="row">
-      {{ form.measurments2(placeholder="Amounts", class="col-md-2 form-control ingredient-input") }} {{ form.ing2(placeholder="Second", class="col form-control") }}
+      {{ form.measurments2(placeholder="Amounts", class="col-md-1 form-control ingredient-input") }} {{ form.ing2(placeholder="Second", class="col form-control") }}
     </div>
   
     <div class="row">
-      {{ form.measurments3(placeholder="Amounts", class="col-md-2 form-control ingredient-input") }} {{ form.ing3(placeholder="Third", class="col form-control") }}
+      {{ form.measurments3(placeholder="Amounts", class="col-md-1 form-control ingredient-input") }} {{ form.ing3(placeholder="Third", class="col form-control") }}
     </div>
   
     <div class="row">
-      {{ form.measurments4(placeholder="Amounts", class="col-md-2 form-control ingredient-input") }} {{ form.ing4(placeholder="Third", class="col form-control") }}
+      {{ form.measurments4(placeholder="Amounts", class="col-md-1 form-control ingredient-input") }} {{ form.ing4(placeholder="Fourth", class="col form-control") }}
     </div>
     
     <div class="row">
-      {{ form.measurments5(placeholder="Amounts", class="col-md-2 form-control ingredient-input") }} {{ form.ing5(placeholder="Third", class="col form-control") }}
+      {{ form.measurments5(placeholder="Amounts", class="col-md-1 form-control ingredient-input") }} {{ form.ing5(placeholder="Fifth", class="col form-control") }}
     </div>
     
     <div class="row">
-      {{ form.measurments6(placeholder="Amounts", class="col-md-2 form-control ingredient-input") }} {{ form.ing6(placeholder="Third", class="col-md form-control") }}
+      {{ form.measurments6(placeholder="Amounts", class="col-md-1 form-control ingredient-input") }} {{ form.ing6(placeholder="Sixth", class="col-md form-control") }}
     </div>
       <br>
     {{ form.garnish(placeholder="Garnish?", class="form-control") }}
@@ -58,8 +97,8 @@
       </div>
       <br>
       <br>
-    <script src="/static/imageupload.js"></script>
   <button type="submit" class="btn newdrink-btn hvr-sink btn-warning">ADD DRINK</button>
   </form>
+</div>
 </div>
 {% endblock %}
