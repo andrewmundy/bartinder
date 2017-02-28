@@ -9,7 +9,7 @@
   <img class="card-img-top card-image img-responsive" src="{{drink.img}}" alt="Card image cap"></a>
   <div class="card-block">
       <a href="{{url_for('drinks.show',drink_id=drink.id, id=drink.user_id)}}">
-        <h1  class="text-center card-title">{{drink.name}}</h1>
+        <h1 class="text-center">{{drink.name}}</h1>
       </a>
       <h3 class="lead text-center">{{drink.user.username}}</h3>
       <h4 class="text-left p-3">

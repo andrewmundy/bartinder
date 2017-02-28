@@ -247,6 +247,9 @@ h1#footer {
     .ingredient-input {
         width: 200px;
     }
+    h1#card-title{
+    font-size: 3.5vmax;
+    }
     .bgchange{
         font-size:1.5rem;
     }
